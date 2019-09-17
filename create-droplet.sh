@@ -49,7 +49,7 @@ echo "Waiting 1 minute for a droplet complete re-boot..."
 sleep 60
 
 echo "Installing python-minimal (so it's ready for Ansible)..."
-doctl compute ssh ${DROPLET_ID} --ssh-command "apt-get install -y python-minimal"
+doctl compute ssh ${DROPLET_ID} --ssh-command "apt-get update && apt-get install -y python-minimal"
 
 echo "Setting DNS record for ${DNS_ZONE}..."
 doctl compute domain records create ${DNS_ZONE} --record-type A --record-name ${DROPLET_SLUG} --record-data ${DROPLET_IP} --record-ttl 600
