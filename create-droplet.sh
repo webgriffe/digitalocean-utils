@@ -29,6 +29,7 @@ DROPLET_ID=$(doctl compute droplet create ${DROPLET_HOSTNAME} \
     --format ID \
     --enable-backups \
     --enable-private-networking \
+    --droplet-agent false
     --no-header \
     --wait)
 
